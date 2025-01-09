@@ -24,7 +24,6 @@ public class LinearSearch {
     }
     
     int searchValue(int number) {
-        //int index = -1;
         for (int i = 0; i < array.length; i++){
             if (number == array[i]) {
                 return i;

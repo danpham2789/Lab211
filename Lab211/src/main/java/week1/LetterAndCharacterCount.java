@@ -2,6 +2,7 @@ package week1;
 
 import java.util.StringTokenizer;
 import java.util.HashMap;
+import java.util.Map;
 
 public class LetterAndCharacterCount {
     private String str;
@@ -10,9 +11,10 @@ public class LetterAndCharacterCount {
         this.str = str;
     }
     
-    void wordCount() {
+    Map<String,Integer> wordCount() {
         StringTokenizer tempStr = new StringTokenizer(str);
         HashMap<String, Integer> word = new HashMap<>();
+        
         while (tempStr.hasMoreTokens()){
             String tempWord = tempStr.nextToken();
             if (word.containsKey(tempWord))
@@ -20,18 +22,19 @@ public class LetterAndCharacterCount {
             else 
                 word.put(tempWord, 1);
         }
-        System.out.println(word);
+        return word;
     }
 
-    void characterCount() {
+    Map<String,Integer> characterCount() {
         HashMap<String, Integer> character = new HashMap<>();
+        
         for (char c: str.toCharArray()){
-            if (c == ' ') continue;
-            if (character.containsKey(c+ ""))  
-                character.put(c + "", character.get(c + "") + 1);
-            else character.put(c+ "", 1);
+            if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+                if (character.containsKey(c+ ""))  
+                    character.put(c + "", character.get(c + "") + 1);
+                else character.put(c+ "", 1);
         }
-        System.out.println(character);
+        return character;
     }
 
     
