@@ -40,7 +40,7 @@ public class BinarySearch {
     
     int binarySearch(int value){
         int left = 0, right = arr.length - 1;
-        while (left < right) {
+        while (left <= right) {
             int mid = (left + right) / 2;
             if (arr[mid] == value) return mid;
             else if (arr[mid] > value) right = mid - 1;
