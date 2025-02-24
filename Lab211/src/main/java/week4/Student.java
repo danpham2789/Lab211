@@ -10,7 +10,7 @@ import java.util.Comparator;
  *
  * @author Admin
  */
-public class Student implements Comparator<Student>{
+public class Student{
     private String ID, studentName;
     private String semester;
     private String courseName;
@@ -61,13 +61,5 @@ public class Student implements Comparator<Student>{
     public String toString() {
         return String.format("%-10s | %-20s | %-10s | %-10s", ID, studentName, semester, courseName);
     }
-    
-    
-
-    @Override
-    public int compare(Student o1, Student o2) {
-        return o1.getStudentName().compareTo(o2.getStudentName());
-    }
-    
     
 }

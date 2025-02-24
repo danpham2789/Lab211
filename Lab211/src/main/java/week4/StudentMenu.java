@@ -38,7 +38,7 @@ public class StudentMenu extends Menu<String>{
         StudentMenu test = new StudentMenu();
         test.run();
     }
-    StudentManegement studentMan = new StudentManegement();
+    StudentManagement studentMan = new StudentManagement();
     void create(){
         int count = 0;
         while(count < 3){
@@ -49,7 +49,7 @@ public class StudentMenu extends Menu<String>{
             studentMan.add(new Student(id, name, semester, course));
             count++;
             if (count == 3) {
-                if (GetInput.checkBool("Do you want to continue (Y/N)?", 'Y', 'N') == 'Y') count--;
+                if ("Y".equals(GetInput.check("Do you want to continue (Y/N)?", "Y", "N"))) count--;
             }
         }
     }
@@ -61,8 +61,8 @@ public class StudentMenu extends Menu<String>{
     }
     
     void updateDelete(){
-        char choice = GetInput.checkBool("(Do you want to update (U) or delete (D) student.", 'U', 'D');
-        if (choice == 'U'){
+        String choice = GetInput.check("(Do you want to update (U) or delete (D) student.", "U", "D");
+        if ("U".equals(choice)){
             String id = GetInput.get("Enter student ID to find:");
             String name = GetInput.get("Enter student name to find:");
             String semester = GetInput.get("Enter number semester to find");
